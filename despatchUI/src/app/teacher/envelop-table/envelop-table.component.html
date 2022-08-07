@@ -1,0 +1,58 @@
+<section class="content">
+    <div class="container-fluid">
+      <div class="block-header">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumb breadcrumb-style ">
+              <li class="breadcrumb-item">
+                <h4 class="page-title">Dashboard</h4>
+              </li>
+              <li class="breadcrumb-item bcrumb-1">
+                <a routerLink="/teacher/dashboard">
+                  <i class="fas fa-home"></i> Home</a>
+              </li>
+              <li class="breadcrumb-item active">Instructor Dashboard</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col">
+          <div class="card">
+            <div class="header">
+              <h2>
+                Today's Envelop</h2>
+            </div>
+            <div class="tableBody">
+              <div class="table-responsive">
+                <table class="table table-hover ">
+                  <thead>
+                    <tr>
+                      <th>Serial No</th>
+                      <th>Letter From</th>
+                      <th>Letter To</th>
+                      <th>Letter Date</th>
+                      <th>Ltr No</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of envelops">
+                      <td>{{item?.id}}</td>
+                      <td>{{item?.from_address}}</td>
+                      <td>{{item?.to_address}}</td>
+                      <td>{{item?.date_time_group}}</td>
+                      <td>{{item?.letter_no}}</td>
+                      <td>
+                        <button [routerLink]="['../envelop-details', item?.id]" mat-flat-button color="primary">Details</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

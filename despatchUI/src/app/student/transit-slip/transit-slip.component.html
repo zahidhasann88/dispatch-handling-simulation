@@ -1,0 +1,164 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Dashboard</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/student/dashboard">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item active">Transit Slip</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="width: 45rem; margin: auto; float: none; border-radius: 0;">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div formGroupName="transitSlip">
+          <div class="card-body">
+            <h6 style="text-align: center;">Signal Despatch Service (SDS) Transit Slip</h6>
+            <div class="row">
+              <div class="col" class="col" style="text-align: center;">
+                <p style="font-size: 12px;">Daspatching Officer</p>
+              </div>
+              <div class="col-6"></div>
+              <div class="col" style="text-align: center;">
+                <p style="font-size: 12px;">Receiving Officer</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col" style="text-align: center;">
+                <input matInput placeholder="Date Stamp" style="width: 80px; height: 70px;">
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-5">
+                    <p style="font-size: 12px;">Transit Slip/Bag No</p>
+                  </div>
+                  <div class="col-7">
+                    <input formControlName="transit_slip_no" matInput
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden;">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <p style="font-size: 12px;">From</p>
+                  </div>
+                  <div class="col-10">
+                    <input matInput formControlName="transit_from"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden;">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <p style="font-size: 12px;">To</p>
+                  </div>
+                  <div class="col-10">
+                    <input matInput formControlName="transit_to"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden;">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-5">
+                    <p style="font-size: 12px;">Route or Method</p>
+                  </div>
+                  <div class="col-7">
+                    <input matInput formControlName="transit_method"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden;">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-5">
+                    <p style="font-size: 12px;">Name of Courior/DR</p>
+                  </div>
+                  <div class="col-7">
+                    <input matInput formControlName="name_of_courier"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden;">
+                  </div>
+                </div>
+              </div>
+              <div class="col" style="text-align: center;">
+                <input matInput placeholder="Date Stamp" style="width: 80px; height: 70px;">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div formArrayName="transitSlipEnvelop">
+          <table class="table table-bordered">
+            <tr style="font-size: 12px;">
+              <th rowspan="2" scope="col">Serial No.</th>
+              <th rowspan="2" scope="col">Orginator's No.</th>
+              <th rowspan="2" scope="col">Precedence</th>
+              <th rowspan="2" scope="col">From</th>
+              <th rowspan="2" scope="col">To</th>
+              <th colspan="2">Receipt for Local Despatch</th>
+              <th (click)="addItem()"><i class="fa fa-plus"></i>Add</th>
+            </tr>
+            <tr style="font-size: 12px;">
+              <th scope="col">Time</th>
+              <th scope="col">Signature</th>
+            </tr>
+            <tbody>
+              <tr style="font-size: 12px;"
+                *ngFor="let item of form.get('transitSlipEnvelop')?.controls; let i = index;">
+                <div [formGroupName]="i">
+                  <th scope="row">
+                    <input formControlName="sl_no" matInput size="3"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden;">
+                  </th>
+                  <td> <input formControlName="originator_no" matInput size="3"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden;">
+                  </td>
+                  <td><input formControlName="precedence" matInput size="2"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden;">
+                  </td>
+                  <td><input formControlName="transit_from" matInput size="2"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden;">
+                  </td>
+                  <td><input formControlName="transit_to" matInput size="2"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden;">
+                  </td>
+                  <td><input formControlName="local_despatch_time" matInput size="2"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden;">
+                  </td>
+                  <td><input formControlName="local_despatch_signature" matInput size="2"
+                      style="border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden;">
+                  </td>
+                </div>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1" formControlName="isSendTicked">
+              Select Clerk
+              <select class="custom-select" formControlName="sent_to">
+                <option value="null" [disabled]="true">(Scroll Down)</option>
+                <option *ngFor="let item of users" value={{item?.id}}>
+                  {{item?.user_full_name}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-primary" (click)="onSend()" [disabled]="form.invalid">Send</button>
+            </div>
+            <div class="col">
+              <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Save</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

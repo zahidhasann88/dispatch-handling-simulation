@@ -1,0 +1,76 @@
+<section class="content">
+    <div class="container-fluid">
+      <div class="block-header">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumb breadcrumb-style ">
+              <li class="breadcrumb-item">
+                <h4 class="page-title">Dashboard</h4>
+              </li>
+              <li class="breadcrumb-item bcrumb-1">
+                <a routerLink="/student/dashboard">
+                  <i class="fas fa-home"></i> Home</a>
+              </li>
+              <li class="breadcrumb-item active">Transit Slip Table</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col">
+          <div class="card">
+            <div class="header">
+              <h2>
+                Transit Slip History</h2>
+            </div>
+            <div class="tableBody">
+              <div class="table-responsive">
+                <table class="table table-hover ">
+                  <thead>
+                    <tr>
+                      <th>SL#</th>
+                      <th>Transit Slip/Bag No</th>
+                      <th>From</th>
+                      <th>To</th>
+                      <th>Route or Method</th>
+                      <th>Name of Courior/DR</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of transitSlips">
+                      <td>{{item?.id}}</td>
+                      <td>{{item?.transit_slip_no}}</td>
+                      <td>
+                        <select class="form-select" aria-label="Default select example" [disabled]="true">
+                          <option *ngFor="let user of users" [ngValue]="user?.id" [selected]="user?.id == item?.transit_from">
+                            {{user?.user_full_name}}
+                          </option>
+                        </select>
+                      </td>
+                      <td>
+                        <select class="form-select" aria-label="Default select example" [disabled]="true">
+                          <option *ngFor="let user of users" [ngValue]="user?.id" [selected]="user?.id == item?.transit_to">
+                            {{user?.user_full_name}}
+                          </option>
+                        </select>
+                      </td>
+                      <td>{{item?.transit_method}}</td>
+                      <td>{{item?.name_of_courier}}</td>
+                      <td>
+                        <a [routerLink]="['../transit-slip-details', item?.id]">
+                          <button class="btn btn-success">
+                            Details
+                          </button>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

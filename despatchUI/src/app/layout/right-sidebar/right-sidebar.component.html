@@ -1,0 +1,50 @@
+<!-- Right Sidebar -->
+<aside id="rightsidebar" class="right-sidebar" [ngClass]="isOpenSidebar ? 'open' : 'close'"
+  (clickOutside)="onClickedOutside($event)">
+  <div class="rightSidebarClose" (click)="toggleRightSidebar()"><i class="far fa-times-circle"></i></div>
+  <div class="demo-skin"
+    [ngStyle]="{'position' : 'relative', 'max-height' : maxHeight+'px', 'max-width' : maxWidth+'px'}"
+    [perfectScrollbar]>
+    <div class="rightSetting">
+      <p>SIDEBAR MENU COLORS</p>
+      <mat-button-toggle-group class="mt-2" [value]="isDarkSidebar ? 'dark' : 'light'">
+        <mat-button-toggle (click)="lightSidebarBtnClick()" value="light">Light</mat-button-toggle>
+        <mat-button-toggle (click)="darkSidebarBtnClick()" value="dark">Dark</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="rightSetting">
+      <p>THEME COLORS</p>
+      <mat-button-toggle-group class="mt-2" [value]="isDarTheme ? 'dark' : 'light'">
+        <mat-button-toggle (click)="lightThemeBtnClick()" value="light">Light</mat-button-toggle>
+        <mat-button-toggle (click)="darkThemeBtnClick()" value="dark">Dark</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="rightSetting">
+      <p>SKINS</p>
+      <ul class="demo-choose-skin choose-theme list-unstyled">
+        <li data-theme="white" [ngClass]="{'actived': selectedBgColor === 'white'}" (click)="selectTheme('white')">
+          <div class="white-theme white-theme-border"></div>
+        </li>
+        <li data-theme="black" [ngClass]="{'actived': selectedBgColor === 'black'}" (click)="selectTheme('black')">
+          <div class="black-theme"></div>
+        </li>
+        <li data-theme="purple" [ngClass]="{'actived': selectedBgColor === 'purple'}" (click)="selectTheme('purple')">
+          <div class="purple-theme"></div>
+        </li>
+        <li data-theme="blue" [ngClass]="{'actived': selectedBgColor === 'blue'}" (click)="selectTheme('blue')">
+          <div class="blue-theme"></div>
+        </li>
+        <li data-theme="cyan" [ngClass]="{'actived': selectedBgColor === 'cyan'}" (click)="selectTheme('cyan')">
+          <div class="cyan-theme"></div>
+        </li>
+        <li data-theme="green" [ngClass]="{'actived': selectedBgColor === 'green'}" (click)="selectTheme('green')">
+          <div class="green-theme"></div>
+        </li>
+        <li data-theme="orange" [ngClass]="{'actived': selectedBgColor === 'orange'}" (click)="selectTheme('orange')">
+          <div class="orange-theme"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</aside>
+<!-- #END# Right Sidebar -->

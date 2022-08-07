@@ -1,0 +1,102 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Dashboard</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item active">Dashboard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col-5">
+            <div class="card" style="width: 500px; margin: 0 auto; float: none; margin-bottom: 10px; box-shadow: none;">
+              <div class="card-body">
+                <h5>Create User</h5>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <div class="mb-3">
+                    <label for="user_full_name" class="form-label">Full name</label>
+                    <input formControlName="user_full_name" type="text" class="form-control" id="user_full_name">
+                  </div>
+                  <div *ngIf="form.controls['user_full_name'].invalid" class="text-danger mt-n3">
+                    <small>Fullname is required</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="user_name" class="form-label">Username</label>
+                    <input formControlName="user_name" type="text" class="form-control" id="user_name">
+                  </div>
+                  <div *ngIf="form.controls['user_name'].invalid" class="text-danger mt-n3">
+                    <small>Username is required</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="user_password" class="form-label">Password</label>
+                    <input formControlName="user_password" type="password" class="form-control" id="user_password">
+                  </div>
+                  <div *ngIf="form.controls['user_password'].invalid" class="text-danger mt-n3">
+                    <small>Password is invalid</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="user_email" class="form-label">Email address</label>
+                    <input formControlName="user_email" type="email" class="form-control" id="user_email"
+                      aria-describedby="emailHelp">
+                  </div>
+                  <div *ngIf="form.controls['user_email'].invalid" class="text-danger mt-n3">
+                    <small>Email is Invalid</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="user_army_number" class="form-label">Army number</label>
+                    <input formControlName="user_army_number" type="text" class="form-control" id="user_army_number">
+                  </div>
+                  <div *ngIf="form.controls['user_army_number'].invalid" class="text-danger mt-n3">
+                    <small>Army number is Invalid</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="user_rank" class="form-label">Rank</label>
+                    <input formControlName="user_rank" type="text" class="form-control" id="user_rank">
+                  </div>
+                  <div *ngIf="form.controls['user_rank'].invalid" class="text-danger mt-n3">
+                    <small>Rank is Invalid</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputRole" class="form-label">Role</label>
+                    <select formControlName="user_role" class="form-select" aria-label="Default select example">
+                      <option value="admin">Admin</option>
+                      <option value="instructor">Instructor</option>
+                      <option value="registration_clerk">Registration Clerk</option>
+                      <option value="routing_clerk">Routing Clerk</option>
+                      <option value="sorting_clerk">Sorting Clerk</option>
+                      <option value="bag_despatch_clerk">Bag Dispatch Clerk</option>
+                    </select>
+                  </div>
+                  <div *ngIf="form.controls['user_role'].invalid" class="text-danger mt-n3">
+                    <small>Role is Invalid</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="user_serving_unit" class="form-label">Serving unit</label>
+                    <input formControlName="user_serving_unit" type="text" class="form-control" id="user_serving_unit">
+                  </div>
+                  <div *ngIf="form.controls['user_serving_unit'].invalid" class="text-danger mt-n3">
+                    <small>Serving unit is Invalid</small>
+                  </div>
+                  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Dashboard</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/teacher/dashboard">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item active">Instructor Dashboard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card" style="border-radius: 0;">
+          <form [formGroup]="form">
+            <div class="card-body">
+              <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                  <div class="form-group">
+                    <input formControlName="security_classification" type="text" class="form-control"
+                      placeholder="Security Classification" aria-describedby="textHelp" [readonly]="true">
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <input formControlName="date_time_group" type="text" class="form-control" placeholder="Date"
+                      aria-describedby="textHelp" [readonly]="true">
+                  </div>
+                </div>
+                <div class="col"></div>
+                <div class="col">
+                  <div class="form-group">
+                    <input formControlName="precedance" type="text" class="form-control" placeholder="Predence"
+                      aria-describedby="textHelp" [readonly]="true">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-8">
+                  <div class="form-group">
+                    <input formControlName="letter_no" type="text" class="form-control" placeholder="Ltr No"
+                      aria-describedby="textHelp" [readonly]="true">
+                  </div>
+                  <div *ngIf="form.controls['letter_no'].invalid" class="text-danger mt-n3">
+                    <small>letter no is required</small>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <input formControlName="originator_no" type="text" class="form-control"
+                      placeholder="Orginator's No" aria-describedby="textHelp" [readonly]="true">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-8">
+                  <div class="form-group">
+                    <input formControlName="from_address" type="text" class="form-control" placeholder="From: Address"
+                      aria-describedby="textHelp" [readonly]="true">
+                  </div>
+                </div>
+                <div class="col-4"></div>
+              </div>
+              <div class="row">
+                <div class="col-8">
+                  <div class="form-group">
+                    <input formControlName="to_address" type="text" class="form-control" placeholder="To: Address"
+                      aria-describedby="textHelp" [readonly]="true">
+                  </div>
+                </div>
+                <div class="col-4"></div>
+              </div>
+              <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                  <div class="form-group">
+                    <input formControlName="security_classification" type="text" class="form-control" placeholder="Security Classification"
+                      aria-describedby="textHelp" [readonly]="true">
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6" style="text-align: right;">
+                <button class="btn btn-primary" style="border-radius: 0" routerLink="transit-slip">Go To Transit Slip</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

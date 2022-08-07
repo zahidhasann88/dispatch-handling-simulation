@@ -1,0 +1,66 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="block-header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul class="breadcrumb breadcrumb-style ">
+            <li class="breadcrumb-item">
+              <h4 class="page-title">Dashboard</h4>
+            </li>
+            <li class="breadcrumb-item bcrumb-1">
+              <a routerLink="/admin/dashboard/main">
+                <i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item active">Users Table</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="tableBody">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>SL#</th>
+                    <th>User Email</th>
+                    <th>User Role</th>
+                    <!-- <th>User Password</th> -->
+                    <!-- <th>Date Of Create</th> -->
+                    <th colspan="2">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- <tr>
+                    <td></td>
+                    <td>John Deo</td>
+                    <td>(123)123456</td>
+                    <td>9946 Baker Rd. Marysville,</td>
+                    <td>Mechanical</td>
+                    <td>
+                      <button routerLink="envelop-details" mat-flat-button color="primary">Details</button>
+                    </td>
+                  </tr> -->
+                  <tr *ngFor="let item of users; index as i">
+                    <td>{{item?.id}}</td>
+                    <td>{{item?.user_email}}</td>
+                    <td>{{item?.user_role}}</td>
+                    <td>
+                      <button [routerLink]="['../user-details', item?.id]" mat-flat-button color="primary">Details</button>
+                    </td>
+                    <td>
+                      <button [routerLink]="['../user-update', item?.id]" mat-flat-button color="primary">Update</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
